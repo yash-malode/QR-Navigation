@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCE Campus Navigator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 PCE Campus Navigator</h1>
+            <p>Priyadarshini College of Engineering, Nagpur</p>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div id="welcomeScreen" class="welcome-screen">
+            <h2>Welcome to Smart Campus Navigation</h2>
+            <div class="qr-icon">📱</div>
+            <p style="color: #666; margin: 20px 0;">Scan a QR code at any campus location to start navigation</p>
+            <button class="btn" onclick="startNavigation()">Simulate QR Scan</button>
+        </div>
+
+        <!-- Destination Selection Screen -->
+        <div id="destinationScreen" class="destination-screen hidden">
+            <h2 style="color: #333; margin-bottom: 20px;">Select Your Destination</h2>
+            <input type="text" id="searchBox" class="search-box" placeholder="🔍 Search locations..." onkeyup="filterDestinations()">
+            <div class="destination-list" id="destinationList"></div>
+        </div>
+
+        <!-- Navigation Screen -->
+        <div id="navigationScreen" class="navigation-screen hidden">
+            <div class="navigation-info">
+                <h3>📍 Navigation Details</h3>
+                <div class="info-row">
+                    <span class="info-label">From:</span>
+                    <span class="info-value" id="fromLocation">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">To:</span>
+                    <span class="info-value" id="toLocation">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Distance:</span>
+                    <span class="info-value" id="distance">-</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Est. Walking Time:</span>
+                    <span class="info-value" id="walkTime">-</span>
+                </div>
+            </div>
+            <div id="map"></div>
+            <div class="button-group">
+                <button class="btn" onclick="resetNavigation()">🔄 New Navigation</button>
+                <button class="btn btn-exit" onclick="exitNavigation()">🚪 Exit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
